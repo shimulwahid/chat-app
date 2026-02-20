@@ -23,7 +23,7 @@ function App() {
 
   // ================= SOCKET CONNECTION =================
   useEffect(() => {
-    const newSocket = io("http://192.168.0.105:5000"); // change if deployed
+    const newSocket = io("https://chat-app.onrender.com/"); // change if deployed
 
     newSocket.on("connect", () => setConnected(true));
     newSocket.on("disconnect", () => setConnected(false));
