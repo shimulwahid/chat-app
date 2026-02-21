@@ -21,7 +21,8 @@ function App() {
   const typingTimeoutRef = useRef(null);
 
   useEffect(() => {
-    const newSocket = io("http://localhost:5000"); // backend URL
+    const newSocket = io("https://chat-app-ty7z.onrender.com");
+    //const newSocket = io("http://192.168.0.105:5000"); // backend URL
     setSocket(newSocket);
 
     newSocket.on("connect", () => setConnected(true));
