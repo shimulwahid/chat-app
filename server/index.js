@@ -20,7 +20,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: [
-      //"https://hilarious-valkyrie-0ee234.netlify.app", // Replace with your Netlify URL
+      "https://hilarious-valkyrie-0ee234.netlify.app", // Replace with your Netlify URL
       "http://localhost:3000", // For local testing
       "http://192.168.0.105:3000"
     ],
