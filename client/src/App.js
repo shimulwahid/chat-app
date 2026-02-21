@@ -21,8 +21,17 @@ function App() {
   const typingTimeoutRef = useRef(null);
 
   useEffect(() => {
-    const newSocket = io("https://chat-app-ty7z.onrender.com");
-    //const newSocket = io("http://192.168.0.105:5000"); // backend URL
+    // const newSocket = io("https://chat-app-ty7z.onrender.com");
+    // //const newSocket = io("http://192.168.0.105:5000"); // backend URL
+    // setSocket(newSocket);
+
+    const SOCKET_URL = "https://chat-app-ty7z.onrender.com"; // your Render backend
+
+    // Force WebSocket transport for persistent connection
+    const newSocket = io(SOCKET_URL, {
+      transports: ["websocket"], 
+    });
+
     setSocket(newSocket);
 
     newSocket.on("connect", () => setConnected(true));
