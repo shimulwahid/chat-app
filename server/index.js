@@ -10,7 +10,10 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: [
+      "http://localhost:3000",
+      "https://chat-app.onrender.com"
+    ],
     methods: ["GET", "POST"],
   },
 });
@@ -126,3 +129,4 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+
