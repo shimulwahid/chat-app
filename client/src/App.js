@@ -21,18 +21,18 @@ function App() {
   const typingTimeoutRef = useRef(null);
 
   useEffect(() => {
-    // const newSocket = io("https://chat-app-ty7z.onrender.com");
-    // //const newSocket = io("http://192.168.0.105:5000"); // backend URL
+    const newSocket = io(process.env.REACT_APP_BACKEND_URL || "https://chat-app-ty7z.onrender.com", {
+  transports: ["websocket"],
+});
+
+    // const SOCKET_URL = "https://chat-app-ty7z.onrender.com"; // your Render backend
+
+    // // Force WebSocket transport for persistent connection
+    // const newSocket = io(SOCKET_URL, {
+    //   transports: ["websocket"], 
+    // });
+
     // setSocket(newSocket);
-
-    const SOCKET_URL = "https://chat-app-ty7z.onrender.com"; // your Render backend
-
-    // Force WebSocket transport for persistent connection
-    const newSocket = io(SOCKET_URL, {
-      transports: ["websocket"], 
-    });
-
-    setSocket(newSocket);
 
     newSocket.on("connect", () => setConnected(true));
     newSocket.on("disconnect", () => setConnected(false));
